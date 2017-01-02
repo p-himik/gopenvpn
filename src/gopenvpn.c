@@ -1596,6 +1596,8 @@ void vpn_applet_init_configs(VPNApplet *applet)
 	VPNConfig *config;
 
 	glob("/etc/openvpn/*.conf", 0, NULL, &gl);
+	glob("/etc/openvpn/client/*.conf", GLOB_APPEND, NULL, &gl);	
+	glob("/etc/openvpn/server/*.conf", GLOB_APPEND, NULL, &gl);	
 	glob("/etc/openvpn/*.ovpn", GLOB_APPEND, NULL, &gl);	
 
 	applet->configs_count = gl.gl_pathc;
