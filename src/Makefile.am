@@ -3,7 +3,7 @@ LDADD = $(LIBINTL)
 
 bin_PROGRAMS = gopenvpn
 if INSTALL_GOVPNSTART
-	bin_PROGRAMS += gopenvpnstart
+bin_PROGRAMS += gopenvpnstart
 endif
 
 gopenvpn_LDADD = $(GTK_LIBS)	\
@@ -26,7 +26,7 @@ gopenvpn_SOURCES = gopenvpn.c gopenvpn.h	\
 	eggtrayicon.c eggtrayicon.h gettext.h
 
 if INSTALL_GOVPNSTART
-	gopenvpnstart_SOURCES = gopenvpnstart.c
+gopenvpnstart_SOURCES = gopenvpnstart.c
 endif
 
 gladedir = $(datadir)/gopenvpn

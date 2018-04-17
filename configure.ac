@@ -73,6 +73,7 @@ if test "x${with_pkexec}" = x; then
    # Auto-detect path if no explicit path was set
    AC_PATH_PROGS([PKEXEC_BINPATH], [pkexec],, [$PATH])
    if test -x "$PKEXEC_BINPATH"; then
+      USE_PKEXEC=1
       AC_DEFINE_UNQUOTED([USE_PKEXEC], [1], [Use pkexec for privileged operations])
       AC_DEFINE_UNQUOTED([PKEXEC_BINARY_PATH], ["$PKEXEC_BINPATH"], [Path to PolicyKit pkexec])
    else
@@ -80,6 +81,7 @@ if test "x${with_pkexec}" = x; then
    fi
 else
    if ! test "x${with_pkexec}" = xno; then
+      USE_PKEXEC=1
       AC_DEFINE_UNQUOTED([USE_PKEXEC], [1], [Use pkexec for privileged operations])
       AC_DEFINE_UNQUOTED([PKEXEC_BINARY_PATH], ["$with_pkexec"], [Path to PolicyKit pkexec])
    else
